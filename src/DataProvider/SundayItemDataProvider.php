@@ -27,10 +27,10 @@ class SundayItemDataProvider implements ItemDataProviderInterface,
 
     public function getItem(string $resourceClass, $id, string $operationName = null, array $context = []): ?Sunday
     {
+        $date = new DateTime($id);
         $dataArray = json_decode(file_get_contents($this->dataFile), true);
         foreach ($dataArray as $key => $item) {
-            $date2 = new DateTime($id);
-            if ($date2->format('Y-m-d') === $item['date']) {
+            if ($date->format('Y-m-d') === $item['date']) {
                 $sunday = Sunday::fromString($item['date']);
                 $sunday->setId($key);
                 $sunday->setTraded($item['traded']);

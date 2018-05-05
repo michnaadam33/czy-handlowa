@@ -26,10 +26,10 @@ services:
 
     App\DataProvider\SundayCollectionDataProvider:
         arguments:
-          $dataFile: '%kernel.root_dir%/../var/data.json'
+          $dataFile: '%kernel.root_dir%/../data.json'
         tags: [ { name: 'api_platform.collection_data_provider', priority: 2 } ]
         autoconfigure: false
     App\DataProvider\SundayItemDataProvider:
         arguments:
-          $dataFile: '%kernel.root_dir%/../var/data.json'
+          $dataFile: '%kernel.root_dir%/../data.json'
         tags: [ { name: 'api_platform.collection_data_provider' } ]
